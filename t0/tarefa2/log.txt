@@ -1,0 +1,27 @@
+===============================================================
+           Sistemas DistribuÃ­dos Prof. Elias
+          LOG do Trabalho PrÃ¡tico 0, Tarefa 0
+      Digitar, compilar e executar o programa tempo.c
+   Este programa foi executado para: N=4 processos.
+           Tempo Total de SimulaÃ§Ã£o = 150
+===============================================================
+Processo 0 testou processo 1 no tempo 30.0 - sucesso!
+Processo 1 testou processo 2 no tempo 30.0 - sucesso!
+Processo 2 testou processo 3 no tempo 30.0 - sucesso!
+Processo 3 testou processo 0 no tempo 30.0 - sucesso!
+Socooorro!!! Sou o processo 1  e estou falhando no tempo 31.0
+Processo 0 testou processo 1 no tempo 60.0 - falho!
+Processo 0 testou processo 2 no tempo 60.0 - sucesso!
+Processo 2 testou processo 3 no tempo 60.0 - sucesso!
+Processo 3 testou processo 0 no tempo 60.0 - sucesso!
+Viva!!! Sou o processo 1 e acabo de recuperar no tempo 61.0
+Processo 1 testou processo 2 no tempo 62.0 - sucesso!
+Processo 0 testou processo 1 no tempo 90.0 - sucesso!
+Processo 2 testou processo 3 no tempo 90.0 - sucesso!
+Processo 3 testou processo 0 no tempo 90.0 - sucesso!
+Processo 1 testou processo 2 no tempo 92.0 - sucesso!
+Processo 0 testou processo 1 no tempo 120.0 - sucesso!
+Processo 2 testou processo 3 no tempo 120.0 - sucesso!
+Processo 3 testou processo 0 no tempo 120.0 - sucesso!
+Processo 1 testou processo 2 no tempo 122.0 - sucesso!
+Processo 0 testou processo 1 no tempo 150.0 - sucesso!
