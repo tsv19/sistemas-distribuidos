@@ -6,124 +6,178 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "smpl.h"
+#include "cisj.c"
 
-// Vamos definir os EVENTOS 
+// Vamos definir os EVENTOS
 #define test 1
 #define fault 2
 #define recovery 3
 
 // Vamos definir o descritor do processo
 
-typedef struct{ 
-   int id;            // identificador de facility do SMPL
-   // outras variÃ¡veis locais dos processos sÃ£o declaradas aqui!
+typedef struct
+{
+    int id; // identificador de facility do SMPL
+            // outras variÃ¡veis locais dos processos sÃ£o declaradas aqui!
 
     int *state; // 0 = correto, 1 = falho, -1 = unknown
 } TipoProcesso;
 
 TipoProcesso *processo;
 
-int main (int argc, char *argv[]) {
-   
-   static int N,   // nÃºmero de processos
-            token,  // indica o processo que estÃ¡ executando
-            event, r, i,
-            MaxTempoSimulac = 150;
+int main(int argc, char *argv[])
+{
 
-   static char fa_name[5];
+    static int N, // nÃºmero de processos
+        token,    // indica o processo que estÃ¡ executando
+        event, r, i,
+        MaxTempoSimulac = 150;
 
-   if (argc != 2) {
-       puts("Uso correto: tempo <nÃºmero de processos>");
-       exit(1);
+    static char fa_name[5];
+
+    if (argc != 2)
+    {
+        puts("Uso correto: tempo <nÃºmero de processos>");
+        exit(1);
     }
 
-   N = atoi(argv[1]);
+    N = atoi(argv[1]);
 
-   smpl(0, "Um Exemplo de SimulaÃ§Ã£o");
-   reset();
-   stream(1);
+    smpl(0, "Um Exemplo de SimulaÃ§Ã£o");
+    reset();
+    stream(1);
 
-   // inicializar processos
+    // inicializar processos
 
-   processo = (TipoProcesso *) malloc(sizeof(TipoProcesso)*N);
+    processo = (TipoProcesso *)malloc(sizeof(TipoProcesso) * N);
 
-   for (i=0; i<N; i++) {
-      memset(fa_name, '\0', 5);
-      sprintf(fa_name, "%d", i);
-      processo[i].id = facility(fa_name,1);
-      
-      processo[i].state = (int *) malloc(sizeof(int)*N);
-      for (int j = 0; j < N; j++){
-        processo[i].state[j] = -1;
-      }
-    
-      processo[i].state[i] = 0;
-   }
+    for (i = 0; i < N; i++)
+    {
+        memset(fa_name, '\0', 5);
+        sprintf(fa_name, "%d", i);
+        processo[i].id = facility(fa_name, 1);
+
+        processo[i].state = (int *)malloc(sizeof(int) * N);
+        for (int j = 0; j < N; j++)
+        {
+            processo[i].state[j] = -1;
+        }
+
+        processo[i].state[i] = 0;
+    }
     // vamos fazer o escalonamento inicial de eventos
 
     // nossos processos vÃ£o executar testes em intervalos de testes
     // o intervalo de testes vai ser de 30 unidades de tempo
-    // a simulaÃ§Ã£o comeÃ§a no tempo 0 (zero) e vamos escalonar o primeiro teste de todos os    
+    // a simulaÃ§Ã£o comeÃ§a no tempo 0 (zero) e vamos escalonar o primeiro teste de todos os
     //       processos para o tempo 30.0
 
-    for (i=0; i<N; i++) {
-       schedule(test, 30.0, i); 
+    for (i = 0; i < N; i++)
+    {
+        schedule(test, 30.0, i);
     }
-    schedule(fault, 31.0, 1);
-    schedule(recovery, 61.0, 1);
+    schedule(fault, 31.0, 6);
+    schedule(recovery, 61.0, 6);
 
     // agora vem o loop principal do simulador
 
     puts("===============================================================");
     puts("           Sistemas DistribuÃ­dos Prof. Elias");
-    puts("          LOG do Trabalho PrÃ¡tico 0, Tarefa 0");
+    puts("          LOG do Trabalho PrÃ¡tico 0, Tarefa 1");
     puts("      Digitar, compilar e executar o programa tempo.c");
-    printf("   Este programa foi executado para: N=%d processos.\n", N); 
+    printf("   Este programa foi executado para: N=%d processos.\n", N);
     printf("           Tempo Total de SimulaÃ§Ã£o = %d\n", MaxTempoSimulac);
     puts("===============================================================");
 
-    while(time() < 150.0) {
-         cause(&event, &token);
-         switch(event) {
-           case test: 
-                int testador = token;
-                int testado = (testador+1)%N;
+    while (time() < 150.0)
+    {
+        cause(&event, &token);
+        switch (event)
+        {
+        case test:
+            int testador = token;
+            node_set *nodes;
+            node_set *nodesTestador;
 
-                if (status(processo[testador].id) !=0) break; // se o processo estÃ¡ falho, nÃ£o testa!
-                
-                while ( status(processo[testado].id) != 0 ){ // se o proximo esta falho, tenta testar o proximo
-                    printf("Processo %d testou processo %d no tempo %4.1f - falho!\n", testador, testado, time());
+            if (status(processo[testador].id) != 0)
+                break; // se o processo estÃ¡ falho, nÃ£o testa!
 
-                    processo[testador].state[testado] = 1;
-                    testado = (testado+1) % N;
+            // c(i, s) retorna o(s) testador(es) do processo i no nível s
+            // executar c(i, s) para todos os processos (menos o testador). EM ORDEM DO HIPERCUBO (ou seja, C(testador, s) para cada nivel s)
+            // se o testador for o primeiro processo valido em algum nivel s, entao testa o processo i
+            // se i for valido, copiar vetor state com novidades (Se o valor da entrada for maior no vetor STATE do processo testado, então copia a informação)
+
+            int s = ceil(log2(N));
+            for (int nivelTestador = 1; nivelTestador <= s; nivelTestador++)
+            {
+                nodesTestador = cis(testador, nivelTestador);
+
+                for (int jTestador = 0; jTestador < nodesTestador->size; jTestador++)
+                {
+                    int testado = nodesTestador->nodes[jTestador];
+                    if (testado == testador || testado > N)
+                        continue;
+
+                    for (int nivel = 1; nivel <= s; nivel++)
+                    {
+                        // printf("Testador: %d, Testado: %d, Nivel: %d\n", testador, testado, nivel);
+                        nodes = cis(testado, nivel);
+                        int primeiroCorreto;
+
+                        for (int j = 0; j < nodes->size; j++)
+                        {
+                            primeiroCorreto = nodes->nodes[j];
+
+                            if (primeiroCorreto > N)
+                                continue;
+
+                            if (processo[testador].state[primeiroCorreto] == 0 || processo[testador].state[primeiroCorreto] == -1)
+                                break;
+                        }
+
+                        // TODO trocada de informação
+                        if (primeiroCorreto == testador)
+                        {
+                            if (status(processo[testado].id) != 0)
+                            {
+                                printf("Processo %d testou processo %d no tempo %4.1f - falho!\n", testador, testado, time());
+                                processo[testador].state[testado] = 1;
+                            }
+                            else
+                            {
+                                printf("Processo %d testou processo %d no tempo %4.1f - sucesso! ", testador, testado, time());
+                                processo[testador].state[testado] = 0;
+                            }
+                        }
+
+                        set_free(nodes);
+                    }
                 }
-                processo[testador].state[testado] = 0;
 
-                for (int i = (testado+1) % N; i != testador; i = (i+1)%N){
-                    processo[testador].state[i] = processo[testado].state[i];
-                }
+                set_free(nodesTestador);
+            }
 
-                printf("Processo %d testou processo %d no tempo %4.1f - sucesso! ", testador, testado, time());
-                schedule(test, 30.0, testador);
+            schedule(test, 30.0, testador);
 
-                printf("State: [");
-                for (int i = 0; i < N; i++){
-                    printf(" %d ", processo[testador].state[i]);
-                }
-                printf("]\n");
+            printf("State: [");
+            for (int i = 0; i < N; i++)
+            {
+                printf(" %d ", processo[testador].state[i]);
+            }
+            printf("]\n");
 
-                break;
-           case fault:
-                r = request(processo[token].id, token, 0);
-                printf("Socooorro!!! Sou o processo %d  e estou falhando no tempo %4.1f\n", token, time());
-                break;
-           case recovery:
-                release(processo[token].id, token);
-                printf("Viva!!! Sou o processo %d e acabo de recuperar no tempo %4.1f\n", token, time());
-                schedule(test, 1.0, token);
-                break;
-          } // switch
-    } // while
+            break;
+        case fault:
+            r = request(processo[token].id, token, 0);
+            printf("Socooorro!!! Sou o processo %d  e estou falhando no tempo %4.1f\n", token, time());
+            break;
+        case recovery:
+            release(processo[token].id, token);
+            printf("Viva!!! Sou o processo %d e acabo de recuperar no tempo %4.1f\n", token, time());
+            schedule(test, 1.0, token);
+            break;
+        } // switch
+    }     // while
 } // tempo.c
-        
