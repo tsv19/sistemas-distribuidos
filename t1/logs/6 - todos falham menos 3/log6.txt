@@ -1,0 +1,224 @@
+===============================================================
+           Sistemas Distribuídos Prof. Elias
+               LOG do Trabalho Prático 1
+     Implementar o detector de falhas vCube (versão 2)
+      Este programa foi executado para: N=8 processos.
+           Tempo Total de Simulação = 870
+===============================================================
+
+Tempo  30.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   0   0  -1   0  -1  -1  -1 ]
+Tempo  30.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - Sucesso!, State: [  0   0   0   0   0   0  -1  -1 ]
+Tempo  30.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - Sucesso!, State: [  0   0   0   0   0  -1   0  -1 ]
+Tempo  30.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  30.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - Sucesso!, State: [  0   0   0  -1   0   0   0  -1 ]
+Tempo  30.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  30.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  30.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+
+Socooorro!!! Sou o processo 7  e estou falhando no tempo 31.0
+
+Tempo  60.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   0   0   0   0   0   0  -1 ]
+Tempo  60.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  60.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  60.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - FALHO!  , State: [  0   0   0   0   0   0   0   1 ]
+Tempo  60.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  60.0: Processo 5 testou:  4 - Sucesso!, 7 - FALHO!  , 1 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+Tempo  60.0: Processo 6 testou:  7 - FALHO!  , 4 - Sucesso!, 5 - Sucesso!, 2 - Sucesso!, 3 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+
+Tempo  90.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  90.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+Tempo  90.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+Tempo  90.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - FALHO!  , State: [  0   0   0   0   0   0   0   1 ]
+Tempo  90.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+Tempo  90.0: Processo 5 testou:  4 - Sucesso!, 7 - FALHO!  , 1 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+Tempo  90.0: Processo 6 testou:  7 - FALHO!  , 4 - Sucesso!, 5 - Sucesso!, 2 - Sucesso!, 3 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+
+Tempo 120.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+Tempo 120.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+Tempo 120.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+Tempo 120.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - FALHO!  , State: [  0   0   0   0   0   0   0   1 ]
+Tempo 120.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+Tempo 120.0: Processo 5 testou:  4 - Sucesso!, 7 - FALHO!  , 1 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+Tempo 120.0: Processo 6 testou:  7 - FALHO!  , 4 - Sucesso!, 5 - Sucesso!, 2 - Sucesso!, 3 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+
+Socooorro!!! Sou o processo 6  e estou falhando no tempo 121.0
+
+Tempo 150.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+Tempo 150.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - Sucesso!, State: [  0   0   0   0   0   0   0   1 ]
+Tempo 150.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - FALHO!  , State: [  0   0   0   0   0   0   1   1 ]
+Tempo 150.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - FALHO!  , State: [  0   0   0   0   0   0   1   1 ]
+Tempo 150.0: Processo 4 testou:  5 - Sucesso!, 6 - FALHO!  , 0 - Sucesso!, 2 - Sucesso!, State: [  0   0   0   0   0   0   1   1 ]
+Tempo 150.0: Processo 5 testou:  4 - Sucesso!, 7 - FALHO!  , 1 - Sucesso!, 3 - Sucesso!, State: [  0   0   0   0   0   0   1   1 ]
+
+Tempo 180.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   0   0   0   0   0   1   1 ]
+Tempo 180.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - Sucesso!, State: [  0   0   0   0   0   0   1   1 ]
+Tempo 180.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - FALHO!  , State: [  0   0   0   0   0   0   1   1 ]
+Tempo 180.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - FALHO!  , State: [  0   0   0   0   0   0   1   1 ]
+Tempo 180.0: Processo 4 testou:  5 - Sucesso!, 6 - FALHO!  , 0 - Sucesso!, 2 - Sucesso!, State: [  0   0   0   0   0   0   1   1 ]
+Tempo 180.0: Processo 5 testou:  4 - Sucesso!, 7 - FALHO!  , 1 - Sucesso!, 3 - Sucesso!, State: [  0   0   0   0   0   0   1   1 ]
+
+Socooorro!!! Sou o processo 5  e estou falhando no tempo 181.0
+
+Tempo 210.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   0   0   0   0   0   1   1 ]
+Tempo 210.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - FALHO!  , State: [  0   0   0   0   0   1   1   1 ]
+Tempo 210.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - FALHO!  , State: [  0   0   0   0   0   0   1   1 ]
+Tempo 210.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - FALHO!  , State: [  0   0   0   0   0   1   1   1 ]
+Tempo 210.0: Processo 4 testou:  5 - FALHO!  , 6 - FALHO!  , 7 - FALHO!  , 0 - Sucesso!, 1 - Sucesso!, 2 - Sucesso!, 3 - Sucesso!, State: [  0   0   0   0   0   1   1   1 ]
+
+Tempo 240.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   0   0   0   0   1   1   1 ]
+Tempo 240.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - FALHO!  , State: [  0   0   0   0   0   1   1   1 ]
+Tempo 240.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - FALHO!  , State: [  0   0   0   0   0   1   1   1 ]
+Tempo 240.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - FALHO!  , State: [  0   0   0   0   0   1   1   1 ]
+Tempo 240.0: Processo 4 testou:  5 - FALHO!  , 6 - FALHO!  , 7 - FALHO!  , 0 - Sucesso!, 1 - Sucesso!, 2 - Sucesso!, 3 - Sucesso!, State: [  0   0   0   0   0   1   1   1 ]
+
+Socooorro!!! Sou o processo 4  e estou falhando no tempo 241.0
+
+Tempo 270.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - FALHO!  , State: [  0   0   0   0   1   1   1   1 ]
+Tempo 270.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - FALHO!  , State: [  0   0   0   0   1   1   1   1 ]
+Tempo 270.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - FALHO!  , State: [  0   0   0   0   1   1   1   1 ]
+Tempo 270.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - FALHO!  , State: [  0   0   0   0   1   1   1   1 ]
+
+Tempo 300.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - FALHO!  , State: [  0   0   0   0   1   1   1   1 ]
+Tempo 300.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - FALHO!  , State: [  0   0   0   0   1   1   1   1 ]
+Tempo 300.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - FALHO!  , State: [  0   0   0   0   1   1   1   1 ]
+Tempo 300.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - FALHO!  , State: [  0   0   0   0   1   1   1   1 ]
+
+Socooorro!!! Sou o processo 2  e estou falhando no tempo 301.0
+
+Tempo 330.0: Processo 0 testou:  1 - Sucesso!, 2 - FALHO!  , 4 - FALHO!  , State: [  0   0   1   0   1   1   1   1 ]
+Tempo 330.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - FALHO!  , State: [  0   0   1   0   1   1   1   1 ]
+Tempo 330.0: Processo 3 testou:  2 - FALHO!  , 1 - Sucesso!, 0 - Sucesso!, 7 - FALHO!  , 6 - FALHO!  , State: [  0   0   1   0   1   1   1   1 ]
+
+Tempo 360.0: Processo 0 testou:  1 - Sucesso!, 2 - FALHO!  , 4 - FALHO!  , State: [  0   0   1   0   1   1   1   1 ]
+Tempo 360.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - FALHO!  , State: [  0   0   1   0   1   1   1   1 ]
+Tempo 360.0: Processo 3 testou:  2 - FALHO!  , 1 - Sucesso!, 0 - Sucesso!, 7 - FALHO!  , 6 - FALHO!  , State: [  0   0   1   0   1   1   1   1 ]
+
+Socooorro!!! Sou o processo 1  e estou falhando no tempo 361.0
+
+Tempo 390.0: Processo 0 testou:  1 - FALHO!  , 2 - FALHO!  , 3 - Sucesso!, 4 - FALHO!  , 5 - FALHO!  , State: [  0   1   1   0   1   1   1   1 ]
+Tempo 390.0: Processo 3 testou:  2 - FALHO!  , 1 - FALHO!  , 0 - Sucesso!, 7 - FALHO!  , 6 - FALHO!  , State: [  0   1   1   0   1   1   1   1 ]
+
+Tempo 420.0: Processo 0 testou:  1 - FALHO!  , 2 - FALHO!  , 3 - Sucesso!, 4 - FALHO!  , 5 - FALHO!  , State: [  0   1   1   0   1   1   1   1 ]
+Tempo 420.0: Processo 3 testou:  2 - FALHO!  , 1 - FALHO!  , 0 - Sucesso!, 7 - FALHO!  , 6 - FALHO!  , State: [  0   1   1   0   1   1   1   1 ]
+
+Socooorro!!! Sou o processo 0  e estou falhando no tempo 421.0
+
+Tempo 450.0: Processo 3 testou:  2 - FALHO!  , 1 - FALHO!  , 0 - FALHO!  , 7 - FALHO!  , 6 - FALHO!  , 5 - FALHO!  , 4 - FALHO!  , State: [  1   1   1   0   1   1   1   1 ]
+
+Viva!!! Sou o processo 7 e acabo de recuperar no tempo 451.0
+
+Tempo 452.0: Processo 7 testou:  6 - FALHO!  , 5 - FALHO!  , 4 - FALHO!  , 3 - Sucesso!, 2 - FALHO!  , 1 - FALHO!  , 0 - FALHO!  , State: [  1   1   1   0   1   1   1   0 ]
+
+Tempo 480.0: Processo 3 testou:  2 - FALHO!  , 1 - FALHO!  , 0 - FALHO!  , 7 - Sucesso!, 6 - FALHO!  , 5 - FALHO!  , 4 - FALHO!  , State: [  1   1   1   0   1   1   1   2 ]
+
+Viva!!! Sou o processo 6 e acabo de recuperar no tempo 481.0
+
+Tempo 482.0: Processo 7 testou:  6 - Sucesso!, 5 - FALHO!  , 3 - Sucesso!, 1 - FALHO!  , State: [  1   1   1   0   1   1   2   0 ]
+Tempo 482.0: Processo 6 testou:  7 - Sucesso!, 4 - FALHO!  , 2 - FALHO!  , 0 - FALHO!  , State: [  1   1   1   0   1   1   0   2 ]
+
+Tempo 510.0: Processo 3 testou:  2 - FALHO!  , 1 - FALHO!  , 0 - FALHO!  , 7 - Sucesso!, 6 - Sucesso!, 5 - FALHO!  , 4 - FALHO!  , State: [  1   1   1   0   1   1   2   2 ]
+
+Tempo 512.0: Processo 7 testou:  6 - Sucesso!, 5 - FALHO!  , 3 - Sucesso!, 1 - FALHO!  , State: [  1   1   1   0   1   1   2   0 ]
+Tempo 512.0: Processo 6 testou:  7 - Sucesso!, 4 - FALHO!  , 2 - FALHO!  , 0 - FALHO!  , State: [  1   1   1   0   1   1   0   2 ]
+
+Tempo 540.0: Processo 3 testou:  2 - FALHO!  , 1 - FALHO!  , 0 - FALHO!  , 7 - Sucesso!, 6 - Sucesso!, 5 - FALHO!  , 4 - FALHO!  , State: [  1   1   1   0   1   1   2   2 ]
+
+Viva!!! Sou o processo 5 e acabo de recuperar no tempo 541.0
+
+Tempo 542.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  1   1   1   0   1   2   2   0 ]
+Tempo 542.0: Processo 6 testou:  7 - Sucesso!, 4 - FALHO!  , 2 - FALHO!  , State: [  1   1   1   0   1   2   0   2 ]
+Tempo 542.0: Processo 5 testou:  4 - FALHO!  , 7 - Sucesso!, 6 - Sucesso!, 1 - FALHO!  , 0 - FALHO!  , State: [  1   1   1   0   1   0   2   2 ]
+
+Tempo 570.0: Processo 3 testou:  2 - FALHO!  , 1 - FALHO!  , 0 - FALHO!  , 7 - Sucesso!, 6 - Sucesso!, 5 - Sucesso!, 4 - FALHO!  , State: [  1   1   1   0   1   2   2   2 ]
+
+Tempo 572.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  1   1   1   0   1   2   2   0 ]
+Tempo 572.0: Processo 6 testou:  7 - Sucesso!, 4 - FALHO!  , 2 - FALHO!  , State: [  1   1   1   0   1   2   0   2 ]
+Tempo 572.0: Processo 5 testou:  4 - FALHO!  , 7 - Sucesso!, 6 - Sucesso!, 1 - FALHO!  , 0 - FALHO!  , State: [  1   1   1   0   1   0   2   2 ]
+
+Tempo 600.0: Processo 3 testou:  2 - FALHO!  , 1 - FALHO!  , 0 - FALHO!  , 7 - Sucesso!, 6 - Sucesso!, 5 - Sucesso!, 4 - FALHO!  , State: [  1   1   1   0   1   2   2   2 ]
+
+Viva!!! Sou o processo 4 e acabo de recuperar no tempo 601.0
+
+Tempo 602.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  1   1   1   0   1   2   2   0 ]
+Tempo 602.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - FALHO!  , State: [  1   1   1   0   2   2   0   2 ]
+Tempo 602.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - FALHO!  , State: [  1   1   1   0   2   0   2   2 ]
+Tempo 602.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - FALHO!  , State: [  1   1   1   0   0   2   2   2 ]
+
+Tempo 630.0: Processo 3 testou:  2 - FALHO!  , 1 - FALHO!  , 0 - FALHO!  , 7 - Sucesso!, 6 - Sucesso!, 5 - Sucesso!, 4 - Sucesso!, State: [  1   1   1   0   2   2   2   2 ]
+
+Tempo 632.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  1   1   1   0   2   2   2   0 ]
+Tempo 632.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - FALHO!  , State: [  1   1   1   0   2   2   0   2 ]
+Tempo 632.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - FALHO!  , State: [  1   1   1   0   2   0   2   2 ]
+Tempo 632.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - FALHO!  , State: [  1   1   1   0   0   2   2   2 ]
+
+Tempo 660.0: Processo 3 testou:  2 - FALHO!  , 1 - FALHO!  , 0 - FALHO!  , 7 - Sucesso!, 6 - Sucesso!, 5 - Sucesso!, 4 - Sucesso!, State: [  1   1   1   0   2   2   2   2 ]
+
+Viva!!! Sou o processo 2 e acabo de recuperar no tempo 661.0
+
+Tempo 662.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  1   1   1   0   2   2   2   0 ]
+Tempo 662.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - Sucesso!, State: [  1   1   2   0   2   2   0   2 ]
+Tempo 662.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - FALHO!  , State: [  1   1   1   0   2   0   2   2 ]
+Tempo 662.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - FALHO!  , State: [  1   1   2   0   0   2   2   2 ]
+Tempo 662.0: Processo 2 testou:  3 - Sucesso!, 0 - FALHO!  , 6 - Sucesso!, 4 - Sucesso!, State: [  1   1   0   0   2   2   2   2 ]
+
+Tempo 690.0: Processo 3 testou:  2 - Sucesso!, 1 - FALHO!  , 7 - Sucesso!, 5 - Sucesso!, State: [  1   1   2   0   2   2   2   2 ]
+
+Tempo 692.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  1   1   2   0   2   2   2   0 ]
+Tempo 692.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - Sucesso!, State: [  1   1   2   0   2   2   0   2 ]
+Tempo 692.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - FALHO!  , State: [  1   1   2   0   2   0   2   2 ]
+Tempo 692.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - FALHO!  , State: [  1   1   2   0   0   2   2   2 ]
+Tempo 692.0: Processo 2 testou:  3 - Sucesso!, 0 - FALHO!  , 6 - Sucesso!, 4 - Sucesso!, State: [  1   1   0   0   2   2   2   2 ]
+
+Tempo 720.0: Processo 3 testou:  2 - Sucesso!, 1 - FALHO!  , 7 - Sucesso!, 5 - Sucesso!, State: [  1   1   2   0   2   2   2   2 ]
+
+Viva!!! Sou o processo 1 e acabo de recuperar no tempo 721.0
+
+Tempo 722.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  1   1   2   0   2   2   2   0 ]
+Tempo 722.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - Sucesso!, State: [  1   1   2   0   2   2   0   2 ]
+Tempo 722.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - Sucesso!, State: [  1   2   2   0   2   0   2   2 ]
+Tempo 722.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - FALHO!  , State: [  1   2   2   0   0   2   2   2 ]
+Tempo 722.0: Processo 2 testou:  3 - Sucesso!, 0 - FALHO!  , 6 - Sucesso!, 4 - Sucesso!, State: [  1   2   0   0   2   2   2   2 ]
+Tempo 722.0: Processo 1 testou:  0 - FALHO!  , 3 - Sucesso!, 2 - Sucesso!, 5 - Sucesso!, 4 - Sucesso!, State: [  1   0   2   0   2   2   2   2 ]
+
+Tempo 750.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - Sucesso!, State: [  1   2   2   0   2   2   2   2 ]
+
+Tempo 752.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  1   2   2   0   2   2   2   0 ]
+Tempo 752.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - Sucesso!, State: [  1   2   2   0   2   2   0   2 ]
+Tempo 752.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - Sucesso!, State: [  1   2   2   0   2   0   2   2 ]
+Tempo 752.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - FALHO!  , State: [  1   2   2   0   0   2   2   2 ]
+Tempo 752.0: Processo 2 testou:  3 - Sucesso!, 0 - FALHO!  , 6 - Sucesso!, State: [  1   2   0   0   2   2   2   2 ]
+Tempo 752.0: Processo 1 testou:  0 - FALHO!  , 3 - Sucesso!, 2 - Sucesso!, 5 - Sucesso!, 4 - Sucesso!, State: [  1   0   2   0   2   2   2   2 ]
+
+Tempo 780.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - Sucesso!, State: [  1   2   2   0   2   2   2   2 ]
+
+Viva!!! Sou o processo 0 e acabo de recuperar no tempo 781.0
+
+Tempo 782.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  1   2   2   0   2   2   2   0 ]
+Tempo 782.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - Sucesso!, State: [  1   2   2   0   2   2   0   2 ]
+Tempo 782.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - Sucesso!, State: [  1   2   2   0   2   0   2   2 ]
+Tempo 782.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - Sucesso!, State: [  2   2   2   0   0   2   2   2 ]
+Tempo 782.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - Sucesso!, State: [  2   2   0   0   2   2   2   2 ]
+Tempo 782.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - Sucesso!, State: [  2   0   2   0   2   2   2   2 ]
+Tempo 782.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   2   2   0   2   2   2   2 ]
+
+Tempo 810.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - Sucesso!, State: [  2   2   2   0   2   2   2   2 ]
+
+Tempo 812.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  2   2   2   0   2   2   2   0 ]
+Tempo 812.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - Sucesso!, State: [  2   2   2   0   2   2   0   2 ]
+Tempo 812.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - Sucesso!, State: [  2   2   2   0   2   0   2   2 ]
+Tempo 812.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - Sucesso!, State: [  2   2   2   0   0   2   2   2 ]
+Tempo 812.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - Sucesso!, State: [  2   2   0   0   2   2   2   2 ]
+Tempo 812.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - Sucesso!, State: [  2   0   2   0   2   2   2   2 ]
+Tempo 812.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   2   2   0   2   2   2   2 ]
+
+Tempo 840.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - Sucesso!, State: [  2   2   2   0   2   2   2   2 ]
+
+Tempo 842.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  2   2   2   0   2   2   2   0 ]
+Tempo 842.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - Sucesso!, State: [  2   2   2   0   2   2   0   2 ]
+Tempo 842.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - Sucesso!, State: [  2   2   2   0   2   0   2   2 ]
+Tempo 842.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - Sucesso!, State: [  2   2   2   0   0   2   2   2 ]
+Tempo 842.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - Sucesso!, State: [  2   2   0   0   2   2   2   2 ]
+Tempo 842.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - Sucesso!, State: [  2   0   2   0   2   2   2   2 ]
+Tempo 842.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   2   2   0   2   2   2   2 ]
+
+Tempo 870.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - Sucesso!, State: [  2   2   2   0   2   2   2   2 ]

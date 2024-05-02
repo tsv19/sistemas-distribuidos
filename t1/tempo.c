@@ -23,6 +23,7 @@ typedef struct
             // outras variÃ¡veis locais dos processos sÃ£o declaradas aqui!
 
     int *state; // 0 = correto, 1 = falho, -1 = unknown
+    int rodada;
 } TipoProcesso;
 
 TipoProcesso *processo;
@@ -33,7 +34,7 @@ int main(int argc, char *argv[])
     static int N, // nÃºmero de processos
         token,    // indica o processo que estÃ¡ executando
         event, r, i,
-        MaxTempoSimulac = 150;
+        MaxTempoSimulac = 180;
 
     static char fa_name[5];
 
@@ -66,6 +67,7 @@ int main(int argc, char *argv[])
         }
 
         processo[i].state[i] = 0;
+        processo[i].rodada = 1;
     }
     // vamos fazer o escalonamento inicial de eventos
 
@@ -78,8 +80,8 @@ int main(int argc, char *argv[])
     {
         schedule(test, 30.0, i);
     }
-    schedule(fault, 31.0, 6);
-    schedule(recovery, 61.0, 6);
+    schedule(fault, 31.0, 0);
+    schedule(recovery, 91.0, 0);
 
     // agora vem o loop principal do simulador
 
@@ -91,9 +93,17 @@ int main(int argc, char *argv[])
     printf("           Tempo Total de Simulação = %d\n", MaxTempoSimulac);
     puts("===============================================================");
 
-    while (time() < 150.0)
+    double tempoAnterior = time();
+    while (time() < MaxTempoSimulac)
     {
         cause(&event, &token);
+
+        if (time() != tempoAnterior)
+        {
+            printf("\n");
+            tempoAnterior = time();
+        }
+
         switch (event)
         {
         case test:
@@ -101,10 +111,7 @@ int main(int argc, char *argv[])
             node_set *nodes;
             node_set *nodesTestador;
 
-            if (testador == 0)
-            {
-                printf("\n");
-            }
+            processo[token].rodada++;
 
             if (status(processo[testador].id) != 0)
                 break; // se o processo estÃ¡ falho, nÃ£o testa!
@@ -194,13 +201,15 @@ int main(int argc, char *argv[])
             break;
         case fault:
             r = request(processo[token].id, token, 0);
-            printf("\nSocooorro!!! Sou o processo %d  e estou falhando no tempo %4.1f\n", token, time());
+            printf("Socooorro!!! Sou o processo %d  e estou falhando no tempo %4.1f\n", token, time());
             break;
         case recovery:
             release(processo[token].id, token);
-            printf("\nViva!!! Sou o processo %d e acabo de recuperar no tempo %4.1f\n", token, time());
+            printf("Viva!!! Sou o processo %d e acabo de recuperar no tempo %4.1f\n", token, time());
             schedule(test, 1.0, token);
             break;
         } // switch
-    }     // while
+    }
+    // while
+
 } // tempo.c
