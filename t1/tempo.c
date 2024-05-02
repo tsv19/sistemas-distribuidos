@@ -84,11 +84,11 @@ int main(int argc, char *argv[])
     // agora vem o loop principal do simulador
 
     puts("===============================================================");
-    puts("           Sistemas DistribuÃ­dos Prof. Elias");
-    puts("          LOG do Trabalho PrÃ¡tico 0, Tarefa 1");
-    puts("      Digitar, compilar e executar o programa tempo.c");
-    printf("   Este programa foi executado para: N=%d processos.\n", N);
-    printf("           Tempo Total de SimulaÃ§Ã£o = %d\n", MaxTempoSimulac);
+    puts("           Sistemas Distribuídos Prof. Elias");
+    puts("               LOG do Trabalho Prático 1");
+    puts("     Implementar o detector de falhas vCube (versão 2)");
+    printf("      Este programa foi executado para: N=%d processos.\n", N);
+    printf("           Tempo Total de Simulação = %d\n", MaxTempoSimulac);
     puts("===============================================================");
 
     while (time() < 150.0)
@@ -101,6 +101,11 @@ int main(int argc, char *argv[])
             node_set *nodes;
             node_set *nodesTestador;
 
+            if (testador == 0)
+            {
+                printf("\n");
+            }
+
             if (status(processo[testador].id) != 0)
                 break; // se o processo estÃ¡ falho, nÃ£o testa!
 
@@ -108,6 +113,8 @@ int main(int argc, char *argv[])
             // executar c(i, s) para todos os processos (menos o testador). EM ORDEM DO HIPERCUBO (ou seja, C(testador, s) para cada nivel s)
             // se o testador for o primeiro processo valido em algum nivel s, entao testa o processo i
             // se i for valido, copiar vetor state com novidades (Se o valor da entrada for maior no vetor STATE do processo testado, então copia a informação)
+
+            printf("Tempo %5.1f: Processo %d testou:  ", time(), testador);
 
             int s = ceil(log2(N));
             for (int nivelTestador = 1; nivelTestador <= s; nivelTestador++)
@@ -144,7 +151,7 @@ int main(int argc, char *argv[])
                         {
                             if (status(processo[testado].id) != 0)
                             {
-                                printf("Processo %d testou %d no tempo %4.1f - falho! ", testador, testado, time());
+                                printf("%d - FALHO!  , ", testado);
                                 if (processo[testador].state[testado] % 2 == 0)
                                 {
                                     processo[testador].state[testado] += 1;
@@ -152,7 +159,7 @@ int main(int argc, char *argv[])
                             }
                             else
                             {
-                                printf("Processo %d testou %d no tempo %4.1f - sucesso! ", testador, testado, time());
+                                printf("%d - Sucesso!, ", testado);
 
                                 if (abs(processo[testador].state[testado] % 2) == 1)
                                 {
@@ -180,18 +187,18 @@ int main(int argc, char *argv[])
             printf("State: [");
             for (int i = 0; i < N; i++)
             {
-                printf(" %d ", processo[testador].state[i]);
+                printf(" %2d ", processo[testador].state[i]);
             }
             printf("]\n");
 
             break;
         case fault:
             r = request(processo[token].id, token, 0);
-            printf("Socooorro!!! Sou o processo %d  e estou falhando no tempo %4.1f\n", token, time());
+            printf("\nSocooorro!!! Sou o processo %d  e estou falhando no tempo %4.1f\n", token, time());
             break;
         case recovery:
             release(processo[token].id, token);
-            printf("Viva!!! Sou o processo %d e acabo de recuperar no tempo %4.1f\n", token, time());
+            printf("\nViva!!! Sou o processo %d e acabo de recuperar no tempo %4.1f\n", token, time());
             schedule(test, 1.0, token);
             break;
         } // switch
