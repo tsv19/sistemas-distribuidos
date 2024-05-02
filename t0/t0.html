@@ -105,7 +105,19 @@
         <h4>Registro de desenvolvimento</h4>
 
         <p>
-            No dia 16 de abril, durante a aula de sistemas distribuídos, os alunos se reuniram para realizar o trabalho prático 0 com auxílio do professor. O trabalho serve como uma base para o trabalho prático 1.
+            No dia 16 de abril, durante a aula de sistemas distribuídos, os alunos se reuniram para realizar o trabalho prático 0 com auxílio do professor. O trabalho serve como uma base para o trabalho prático 1. Aqui foi implementado o algoritmo VRing. O trabalho foi dividido em 5 tarefas, sendo elas:
+
+            <ul>
+                <li>Tarefa 0: digitar, compilar e executar o programa exemplo, tempo.c</li>
+                
+                <li>Tarefa 1: Fazer cada um dos processos testar o seguinte no anel. Implemente o teste com a função status() do SMPL e imprimir (printf) o resultado de cada teste executado. Por exemplo: “O processo i testou o processo j correto no tempo tal.”</li>
+                
+                <li>Tarefa 2: Cada processo correto executa testes até achar outro processo correto. Lembre-se de tratar o caso em que todos os demais processos estão falhos. Imprimir os testes e resultados.</li>
+                
+                <li>Tarefa 3: Cada processo mantém localmente o vetor State[N]. A entrada do vetor State[j] indica o estado do processo j. O estado de cada processo pode ser: -1 (unknown), 0 (correto) ou 1 (falho). Inicialize (para todos os processos) o State[N] com -1 (indicando estado “unknown”) para todos os demais processos e 0 para o próprio processo. Nesta tarefa ao executar um teste em um processo j, o testador atualiza a entrada correspondente no vetor State[j]. Em cada intervalo de testes, mostre o vetor State[N].</li>
+                
+                <li>Tarefa 4: Quando um processo correto testa outro processo correto obtém as informações do estado dos demais processos do sistema, processos do sistema exceto aqueles que testou nesta rodada, além do próprio testador.</li>
+            </ul>
         </p>
 
 
