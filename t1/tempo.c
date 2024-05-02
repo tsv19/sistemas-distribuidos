@@ -133,22 +133,38 @@ int main(int argc, char *argv[])
                             if (primeiroCorreto > N)
                                 continue;
 
-                            if (processo[testador].state[primeiroCorreto] == 0 || processo[testador].state[primeiroCorreto] == -1)
+                            if (abs(processo[testador].state[primeiroCorreto] % 2) == 0 || processo[testador].state[primeiroCorreto] == -1)
                                 break;
                         }
 
-                        // TODO trocada de informação
+                        // LEMBRAR
+                        // ESTADO PAR = CORRETO
+                        // ESTADO IMPAR = FALHO
                         if (primeiroCorreto == testador)
                         {
                             if (status(processo[testado].id) != 0)
                             {
-                                printf("Processo %d testou processo %d no tempo %4.1f - falho!\n", testador, testado, time());
-                                processo[testador].state[testado] = 1;
+                                printf("Processo %d testou %d no tempo %4.1f - falho! ", testador, testado, time());
+                                if (processo[testador].state[testado] % 2 == 0)
+                                {
+                                    processo[testador].state[testado] += 1;
+                                }
                             }
                             else
                             {
-                                printf("Processo %d testou processo %d no tempo %4.1f - sucesso! ", testador, testado, time());
-                                processo[testador].state[testado] = 0;
+                                printf("Processo %d testou %d no tempo %4.1f - sucesso! ", testador, testado, time());
+
+                                if (abs(processo[testador].state[testado] % 2) == 1)
+                                {
+                                    processo[testador].state[testado] += 1;
+                                }
+                                for (int i = 0; i < N; i++)
+                                {
+                                    if (processo[testado].state[i] > processo[testador].state[i] && i != testador)
+                                    {
+                                        processo[testador].state[i] = processo[testado].state[i];
+                                    }
+                                }
                             }
                         }
 
