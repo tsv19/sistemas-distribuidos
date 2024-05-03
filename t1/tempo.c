@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     static int N, // nÃºmero de processos
         token,    // indica o processo que estÃ¡ executando
         event, r, i,
-        MaxTempoSimulac = 180;
+        MaxTempoSimulac = 240;
 
     static char fa_name[5];
 
@@ -80,8 +80,8 @@ int main(int argc, char *argv[])
     {
         schedule(test, 30.0, i);
     }
-    schedule(fault, 31.0, 0);
-    schedule(recovery, 91.0, 0);
+    schedule(fault, 31.0, 11);
+    schedule(recovery, 121.0, 11);
 
     // agora vem o loop principal do simulador
 
@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
                 for (int jTestador = 0; jTestador < nodesTestador->size; jTestador++)
                 {
                     int testado = nodesTestador->nodes[jTestador];
-                    if (testado == testador || testado > N)
+                    if (testado == testador || testado >= N)
                         continue;
 
                     for (int nivel = 1; nivel <= s; nivel++)
@@ -144,7 +144,7 @@ int main(int argc, char *argv[])
                         {
                             primeiroCorreto = nodes->nodes[j];
 
-                            if (primeiroCorreto > N)
+                            if (primeiroCorreto >= N)
                                 continue;
 
                             if (abs(processo[testador].state[primeiroCorreto] % 2) == 0 || processo[testador].state[primeiroCorreto] == -1)
@@ -154,7 +154,7 @@ int main(int argc, char *argv[])
                         // LEMBRAR
                         // ESTADO PAR = CORRETO
                         // ESTADO IMPAR = FALHO
-                        if (primeiroCorreto == testador)
+                        if (primeiroCorreto == testador && primeiroCorreto < N)
                         {
                             if (status(processo[testado].id) != 0)
                             {
