@@ -106,7 +106,7 @@
         <h4>Registro de desenvolvimento</h4>
 
         <p>
-            No dia 30 de abril os alunos Tiago Serique e Vinícius M. Ribeiro se reuniram para discutir a respeito do trabalho prático 1 da disciplina de Sistemas Distribuídos. O trabalho consiste em simular a execução do algoritmo VCube na versão 2 utilizando a ferramenta de simulação SMPL. A simulação deve ser feita em um ambiente com log N processos. O trabalho prático 1 é uma continuação do trabalho prático 0, que serviu como base para a execução e aprendizado para do trabalho prático 1. Você pode acessar os resultados do trabalho prático 0 <a href="http://www.inf.ufpr.br/tsv19/sisdis/t0/t0.html">neste link.</a>
+            No dia 30 de abril e 1 de maio os alunos Tiago Serique e Vinícius M. Ribeiro se reuniram para discutir a respeito do trabalho prático 1 da disciplina de Sistemas Distribuídos. O trabalho consiste em simular a execução do algoritmo VCube na versão 2 utilizando a ferramenta de simulação SMPL. A simulação deve ser feita em um ambiente com N processos. O trabalho prático 1 é uma continuação do trabalho prático 0, que serviu como base para a execução e aprendizado para do trabalho prático 1. Você pode acessar os resultados do trabalho prático 0 <a href="http://www.inf.ufpr.br/tsv19/sisdis/t0/t0.html">neste link.</a>
         </p>
 
 
@@ -114,10 +114,10 @@
             Para melhor organização, dividimos o trabalho em 4 pequenas tarefas, sendo elas:
 
             <ol>
-                <li>Adaptação do código para o testador testar na ordem do hipercubo, e não sequencialmente como no TP0
-                <li>Implementação da troca de informações entre o testador e o testado, com o critério de testado.STATE[i] > testador.STATE[i]
-                <li>Alteração da função cisj a cada processo falho
-                <li>Ajuste do log de execução
+                <li>Adaptação do código para o testador testar na ordem do hipercubo, e não sequencialmente como no TP0;
+                <li>Implementação da troca de informações entre o testador e o testado, com o critério de testado.STATE[i] > testador.STATE[i];
+                <li>Alteração da execução da função C(i, s) para cada processo;
+                <li>Ajuste do log de execução.
             </ol>
         </p>
 
@@ -146,11 +146,37 @@
 
         <h4>Tarefa 3</h4>
         <p>
+            Na versão 1 do VCube, a função C(i, s) determina quem o processo i deve testar no cluster s. Já na versão 2, C(i, s) retorna os testadores de i. No entanto, é importante notar que o testador está interessado em quem ele deve testar, não em quem o testa (afinal, ele é o testador!).
+        </p>
+        <p>
+            Para resolver esse problema, o testador executa C(i, s) para cada processo no sistema. Se ele for o primeiro processo correto do cluster s para o processo i, então ele deve testar i. Caso contrário, ele não deve testar i. Para determinar se ele é o primeiro processo correto do cluster s para i, o testador precisa saber quais processos estão falhos. Para isso, ele pode observar seu vetor STATE[].
+        </p>
+        <p>
+            Sabendo disso, qual ordem devemos executar a função C(i, s) para cada processo? Utilizamos a própria ordem do hipercubo. O testador executa a função C(i, s) sobre ele mesmo e, com isso, obtemos a ordem correta de execução da função C(i, s) para cada processo.
         </p>
 
         <h4>Tarefa 4</h4>
         <p>
             Foram feitos ajustes no log para que a saída fosse mais clara e organizada. A cada rodada, o log mostra o processo testador e quem ele testou, além de mostrar o vetor STATE[] do testador. Para os processos que falharam ou reviveram também há uma mensagem do log que evidencia a falha ou a recuperação do processo.  
+
+            <ol>
+                <li><strong>Log de execução 1:</strong> Simulamos a latência para que todos os processos se "reconheçam". Foram necessárias logN rodadas (90 unidades de tempo). O grande responsável por isso foi o processo 0, que demorou 3 rodadas para reconhecer o processo 7 (faz sentido, uma vez que a menor distância entre 0 e 7 é 3). Além disso, o processo 0 não consegue se beneficiar das "novidades" dos processos, uma vez que ele é o primeiro testador de cada rodada.</li>
+
+                <li><strong>Log de execução 2:</strong> Para mostrar o impacto da ordem de execução dos processos, utilizamos o mesmo teste anterior, porém invertemos a ordem de execução (ou seja, 7 é o primeiro a testar e 0 é o último de cada rodada). Com isso, dessa vez o processo 7 foi o grande responsável pela latência - demorou 3 rodadas para reconhecer o processo 0. Já o processo 0 obteve o estado de todos os processos em uma única rodada. Como ele é sempre o último processo a testar de cada rodada, sempre irá conseguir a maior quantidade de "novidades".</li>
+
+                <li><strong>Log de execução 3:</strong> Falhamos e recuperamos o processo 0. Como o processo 1 imediatamente reconhece que 0 falhou, essa informação é propagada para todos os outros processo em uma única rodada (observe que isso ocorre devido à ordem de execução dos processos). Com isso, basta uma rodada para detectar que 0 falhou (30 unidades de tempo), e igualmente uma rodada para detectar sua recuperação.</li>
+
+                <li><strong>Log de execução 4:</strong> Falhamos e recuperamos o processo 7. Nesse caso, a latência foi de 3 rodadas (90 unidades de tempo) (logN). Novamente, assim como observado no Log de execução 1, o grande responsável foi o processo 0.</li>
+                
+                <li><strong>Log de execução 5:</strong> Falhamos e recuperamos o processo 5. Neste caso, para que todos os processos identificassem a falha foram necessárias 2 rodadas no total (60 unidades de tempo).</li>
+                
+                <li><strong>Log de execução 6:</strong> Falhamos e recuperamos os processos 3 e 7. Primeiro falhamos o 3, depois o 7. Da mesma forma, recuperamos o 3 e depois o 7. Neste caso, o processos vivos demoraram 2 rodadas (60 unidades de tempo) para detectar as falhas e 2 para as reencarnações dos processos 3 e 7.</li>
+                
+                <li><strong>Log de execução 7:</strong> Falhamos e recuperamos todos os processos exceto o 3. Primeiro falhamos um processo por vez, do 7 ao 0, e depois recuperamos um por vez, do 7 ao 0. A latência máxima foi de 3 rodadas, justamente quando o processo 0 deve reconhecer que 7 falhou. a partir desse ponto, todos os eventos foram detectados por no máximo 2 rodadas.</li>
+
+                <li><strong>Log de execução 8:</strong> Falhamos o processo 11, dado um total de 14 processos. Nosso objetivo foi verificar se o programa funciona com uma quantidade de processos superior a 8 e que não está no formato 2^n. Tudo ocorreu como o previsto. Como não temos os processos 14 e 15 para fechar o hipercubo, outros processos realizam os testes que esses processos faltantes deveriam realizar.</li>
+
+            </ol>
         </p>
 
         <div>
@@ -173,6 +199,8 @@
                     <a href="http://www.inf.ufpr.br/tsv19/sisdis/t1/log6.txt">Log de execucao 6</a>
                     &nbsp;
                     <a href="http://www.inf.ufpr.br/tsv19/sisdis/t1/log7.txt">Log de execucao 7</a>
+                    &nbsp;
+                    <a href="http://www.inf.ufpr.br/tsv19/sisdis/t1/log8.txt">Log de execucao 8</a>
                 </p>
             </div>
         </div>
