@@ -1,0 +1,36 @@
+===============================================================
+           Sistemas Distribuídos Prof. Elias
+               LOG do Trabalho Prático 1
+     Implementar o detector de falhas vCube (versão 2)
+      Este programa foi executado para: N=8 processos.
+           Tempo Total de Simulação = 120
+===============================================================
+
+Tempo  30.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   0   0  -1   0  -1  -1  -1 ]
+Tempo  30.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - Sucesso!, State: [  0   0   0   0   0   0  -1  -1 ]
+Tempo  30.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - Sucesso!, State: [  0   0   0   0   0  -1   0  -1 ]
+Tempo  30.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  30.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - Sucesso!, State: [  0   0   0  -1   0   0   0  -1 ]
+Tempo  30.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  30.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  30.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+
+Tempo  60.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   0   0   0   0   0   0  -1 ]
+Tempo  60.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  60.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  60.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  60.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  60.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  60.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  60.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+
+Tempo  90.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  90.0: Processo 1 testou:  0 - Sucesso!, 3 - Sucesso!, 5 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  90.0: Processo 2 testou:  3 - Sucesso!, 0 - Sucesso!, 6 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  90.0: Processo 3 testou:  2 - Sucesso!, 1 - Sucesso!, 7 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  90.0: Processo 4 testou:  5 - Sucesso!, 6 - Sucesso!, 0 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  90.0: Processo 5 testou:  4 - Sucesso!, 7 - Sucesso!, 1 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  90.0: Processo 6 testou:  7 - Sucesso!, 4 - Sucesso!, 2 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+Tempo  90.0: Processo 7 testou:  6 - Sucesso!, 5 - Sucesso!, 3 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
+
+Tempo 120.0: Processo 0 testou:  1 - Sucesso!, 2 - Sucesso!, 4 - Sucesso!, State: [  0   0   0   0   0   0   0   0 ]
