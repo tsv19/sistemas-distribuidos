@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "cisj.c"
+#include "avere.h"
+#include "cisj.h"
 #include "lista_t.h"
 
 Node *filaProcessos = NULL;
@@ -21,11 +22,13 @@ void arvere(int raizId, int dimensaoVCube, Node *listaProcessosFalhos)
         {
             int candidato = nodesCandidatos->nodes[j];
 
+            // printf("Candidato: %d\n", candidato);
+
             if (listaProcessosFalhos != NULL)
             {
                 Node *processo = search(listaProcessosFalhos, candidato);
 
-                if (processo == NULL)
+                if (processo != NULL)
                 {
                     continue;
                 }
@@ -38,6 +41,7 @@ void arvere(int raizId, int dimensaoVCube, Node *listaProcessosFalhos)
         // Não existe processo correto no nível s, ignoramos o nível e vamos para o próximo
         if (primeiroCorreto == -1)
         {
+            printf("Processo %d não encontrou processo correto no nível %d\n", raizId, i);
             continue;
         }
 
@@ -54,6 +58,10 @@ void arvere(int raizId, int dimensaoVCube, Node *listaProcessosFalhos)
     for (int i = 0; i < dimensaoVCube; i++)
     {
         Node *targetNode = removeFirstNode(&filaProcessos);
+        if (targetNode == NULL)
+        {
+            break;
+        }
         int target = targetNode->processo;
         int sFilho = targetNode->sFilho;
         subArvere(target, sFilho, listaProcessosFalhos);
@@ -90,7 +98,7 @@ void subArvere(int processoId, int sFilho, Node *listaProcessosFalhos)
             {
                 Node *processo = search(listaProcessosFalhos, candidato);
 
-                if (processo == NULL)
+                if (processo != NULL)
                 {
                     continue;
                 }
@@ -118,26 +126,31 @@ void subArvere(int processoId, int sFilho, Node *listaProcessosFalhos)
     for (int i = 1; i < sFilho; i++)
     {
         Node *targetNode = removeFirstNode(&filaProcessos);
+        if (targetNode == NULL)
+        {
+            break;
+        }
         int target = targetNode->processo;
         int sFilho = targetNode->sFilho;
+
         subArvere(target, sFilho, listaProcessosFalhos);
     }
 
     // printf("Sou o processo %d e terminei de enviar mensagens para meus filhos!\n", processoId);
 }
 
-int main()
-{
+// int main()
+// {
 
-    int raizId = 0;
-    int dimensaoVCube = 3;
+//     int raizId = 0;
+//     int dimensaoVCube = 3;
 
-    Node *listaProcessosFalhos = NULL;
-    // Node *listaProcessosFalhos = createNode(1);
-    // Node *listaProcessosFalhos = createNode(2);
-    // Node *listaProcessosFalhos = createNode(4);
-    // Node *listaProcessosFalhos = createNode(7);
+//     Node *listaProcessosFalhos = NULL;
+//     // Node *listaProcessosFalhos = createNode(1);
+//     // Node *listaProcessosFalhos = createNode(2);
+//     // Node *listaProcessosFalhos = createNode(4);
+//     // Node *listaProcessosFalhos = createNode(7);
 
-    arvere(raizId, dimensaoVCube, listaProcessosFalhos);
-    deleteList(&listaProcessosFalhos);
-}
+//     arvere(raizId, dimensaoVCube, listaProcessosFalhos);
+//     deleteList(&listaProcessosFalhos);
+// }
