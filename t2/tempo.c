@@ -9,11 +9,14 @@
 #include <math.h>
 #include "smpl.h"
 #include "cisj.c"
+#include "lista_t.h"
+#include "avere.h"
 
 // Vamos definir os EVENTOS
 #define test 1
 #define fault 2
 #define recovery 3
+#define generate 4
 
 // Vamos definir o descritor do processo
 
@@ -80,8 +83,11 @@ int main(int argc, char *argv[])
     {
         schedule(test, 30.0, i);
     }
-    schedule(fault, 31.0, 11);
-    schedule(recovery, 121.0, 11);
+    schedule(fault, 31.0, 1);
+    schedule(fault, 31.0, 2);
+    schedule(fault, 31.0, 4);
+    schedule(fault, 31.0, 7);
+    schedule(generate, 151.0, 0);
 
     // agora vem o loop principal do simulador
 
@@ -207,6 +213,27 @@ int main(int argc, char *argv[])
             release(processo[token].id, token);
             printf("Viva!!! Sou o processo %d e acabo de recuperar no tempo %4.1f\n", token, time());
             schedule(test, 1.0, token);
+            break;
+        case generate:
+            if (status(processo[testador].id) != 0)
+                break; // se o processo estÃ¡ falho, nÃ£o gera arvore!
+
+            int raiz = token;
+            Node *listaProcessosFalhos = NULL;
+
+            for (int i = 0; i < N; i++)
+            {
+                // Observamos o vetor de novidades. Se o valor for impar, entao o processo i falhou
+                // Adicionamos na lista de processos falhos
+                if (processo[raiz].state[i] % 2 == 1)
+                {
+                    insertAtTailProcesso(&listaProcessosFalhos, i, 0);
+                }
+            }
+
+            arvere(raiz, ceil(log2(N)), listaProcessosFalhos);
+
+            deleteList(&listaProcessosFalhos);
             break;
         } // switch
     }
