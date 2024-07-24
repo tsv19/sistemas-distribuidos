@@ -1,19 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "cisj.h"
 
-#define POW_2(num) (1 << (num))
-#define VALID_J(j, s) ((POW_2(s - 1)) >= j)
-
-/* |-- node_set.h */
-typedef struct node_set
-{
-	int *nodes;
-	ssize_t size;
-	ssize_t offset;
-} node_set;
-
-static node_set *
+node_set *
 set_new(ssize_t size)
 {
 	node_set *new;
@@ -25,16 +12,14 @@ set_new(ssize_t size)
 	return new;
 }
 
-static void
-set_insert(node_set *nodes, int node)
+void set_insert(node_set *nodes, int node)
 {
 	if (nodes == NULL)
 		return;
 	nodes->nodes[nodes->offset++] = node;
 }
 
-static void
-set_merge(node_set *dest, node_set *source)
+void set_merge(node_set *dest, node_set *source)
 {
 	if (dest == NULL || source == NULL)
 		return;
@@ -42,13 +27,11 @@ set_merge(node_set *dest, node_set *source)
 	dest->offset += source->size;
 }
 
-static void
-set_free(node_set *nodes)
+void set_free(node_set *nodes)
 {
 	free(nodes->nodes);
 	free(nodes);
 }
-/* node_set.h --| */
 
 node_set *
 cis(int i, int s)

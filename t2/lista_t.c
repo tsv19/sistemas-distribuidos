@@ -1,55 +1,132 @@
 #include "lista_t.h"
 
-int main()
+Node *createNode(int processo)
 {
-    Node *head = NULL;
-
-    insertAtHead(&head, 1);
-    insertAtHead(&head, 2);
-    insertAtHead(&head, 3);
-
-    printf("Lista apos insercoes no inicio: ");
-    printList(head);
-
-    insertAtTail(&head, 4);
-    insertAtTail(&head, 5);
-
-    printf("Lista apos insercoes no fim: ");
-    printList(head);
-
-    deleteNode(&head, 3);
-
-    printf("Lista apos insercoes do valor 3: ");
-    printList(head);
-
-    int key = 3;
-    Node *result = search(head, key);
-
-    if (result != NULL)
+    Node *newNode = (Node *)malloc(sizeof(Node));
+    if (!newNode)
     {
-        printf("Valor %d encontrado na lista.\n", key);
-    }
-    else
-    {
-        printf("Valor %d não encontrado na lista.\n", key);
+        printf("Erro de alocacao de memoria\n");
+        exit(1);
     }
 
-    int key2 = 4;
-    Node *result2 = search(head, key2);
+    newNode->processo = processo;
+    newNode->sFilho = 0;
+    newNode->next = NULL;
+    return newNode;
+}
 
-    if (result2 != NULL)
+Node *createNodeProcesso(int processo, int sFilho)
+{
+    Node *newNode = (Node *)malloc(sizeof(Node));
+    if (!newNode)
     {
-        printf("Valor %d encontrado na lista.\n", key2);
+        printf("Erro de alocacao de memoria\n");
+        exit(1);
     }
-    else
+
+    newNode->processo = processo;
+    newNode->sFilho = sFilho;
+    newNode->next = NULL;
+    return newNode;
+}
+
+void insertAtHeadProcesso(Node **head, int processo, int sFilho)
+{
+    Node *newNode = createNode(processo);
+    newNode->next = *head;
+    *head = newNode;
+}
+
+void insertAtTailProcesso(Node **head, int processo, int sFilho)
+{
+    Node *newNode = createNodeProcesso(processo, sFilho);
+    if (*head == NULL)
     {
-        printf("Valor %d não encontrado na lista.\n", key2);
+        *head = newNode;
+        return;
+    }
+    Node *temp = *head;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+}
+
+void deleteNode(Node **head, int key)
+{
+    Node *temp = *head;
+    Node *prev = NULL;
+
+    if (temp != NULL && temp->processo == key)
+    {
+        *head = temp->next;
+        free(temp);
+        return;
     }
 
-    deleteNode(&head, 3);
+    while (temp != NULL && temp->processo != key)
+    {
+        prev = temp;
+        temp = temp->next;
+    }
 
-    printf("Lista apos exclusao do valor 3: ");
-    printList(head);
+    if (temp == NULL)
+        return;
 
-    return 0;
+    prev->next = temp->next;
+    free(temp);
+}
+
+void printList(Node *head)
+{
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        printf("%d -> ", temp->processo);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+Node *search(Node *head, int key)
+{
+    Node *current = head;
+    while (current != NULL)
+    {
+        if (current->processo == key)
+        {
+            return current;
+        }
+        current = current->next;
+    }
+    return NULL;
+}
+
+void deleteList(Node **head)
+{
+    Node *current = *head;
+    Node *nextNode = NULL;
+
+    while (current != NULL)
+    {
+        nextNode = current->next;
+        free(current);
+        current = nextNode;
+    }
+
+    *head = NULL;
+}
+
+Node *removeFirstNode(Node **head)
+{
+    if (*head == NULL)
+    {
+        return NULL;
+    }
+
+    Node *temp = *head;
+    *head = (*head)->next;
+
+    return temp;
 }
