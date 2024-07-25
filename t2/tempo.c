@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     static int N, // nÃºmero de processos
         token,    // indica o processo que estÃ¡ executando
         event, r, i,
-        MaxTempoSimulac = 240;
+        MaxTempoSimulac = 92;
 
     static char fa_name[5];
 
@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
     schedule(fault, 31.0, 2);
     schedule(fault, 31.0, 4);
     schedule(fault, 31.0, 7);
-    schedule(generate, 151.0, 0);
+    schedule(generate, 91.0, 0);
 
     // agora vem o loop principal do simulador
 
@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
             // se o testador for o primeiro processo valido em algum nivel s, entao testa o processo i
             // se i for valido, copiar vetor state com novidades (Se o valor da entrada for maior no vetor STATE do processo testado, então copia a informação)
 
-            printf("Tempo %5.1f: Processo %d testou:  ", time(), testador);
+            // printf("Tempo %5.1f: Processo %d testou:  ", time(), testador);
 
             int s = ceil(log2(N));
             for (int nivelTestador = 1; nivelTestador <= s; nivelTestador++)
@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
                         {
                             if (status(processo[testado].id) != 0)
                             {
-                                printf("%d - FALHO!  , ", testado);
+                                // printf("%d - FALHO!  , ", testado);
                                 if (processo[testador].state[testado] % 2 == 0)
                                 {
                                     processo[testador].state[testado] += 1;
@@ -172,7 +172,7 @@ int main(int argc, char *argv[])
                             }
                             else
                             {
-                                printf("%d - Sucesso!, ", testado);
+                                // printf("%d - Sucesso!, ", testado);
 
                                 if (abs(processo[testador].state[testado] % 2) == 1)
                                 {
@@ -197,7 +197,8 @@ int main(int argc, char *argv[])
 
             schedule(test, 30.0, testador);
 
-            printf("State: [");
+            printf("Processo %d testou no tempo %4.1f, State: [", testador, time());
+            // printf("State: [");
             for (int i = 0; i < N; i++)
             {
                 printf(" %2d ", processo[testador].state[i]);

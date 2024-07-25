@@ -121,7 +121,7 @@ void subArvere(int processoId, int sFilho, Node *listaProcessosFalhos)
         set_free(nodesCandidatos);
     }
 
-    printf("\n");
+    // printf("\n");
 
     for (int i = 1; i < sFilho; i++)
     {
