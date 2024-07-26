@@ -10,7 +10,7 @@
 #include "smpl.h"
 #include "cisj.c"
 #include "lista_t.h"
-#include "avere.h"
+#include "arvore.h"
 
 // Vamos definir os EVENTOS
 #define test 1
@@ -228,7 +228,7 @@ int main(int argc, char *argv[])
                 }
             }
 
-            arvere(raiz, ceil(log2(N)), listaProcessosFalhos);
+            arvore(raiz, ceil(log2(N)), listaProcessosFalhos);
 
             deleteList(&listaProcessosFalhos);
             break;

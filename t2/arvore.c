@@ -1,13 +1,13 @@
 #include <stdio.h>
-#include "avere.h"
+#include "arvore.h"
 #include "cisj.h"
 #include "lista_t.h"
 
 Node *filaProcessos = NULL;
 
-void subArvere(int processoId, int sFilho, Node *listaProcessosFalhos);
+void subArvore(int processoId, int sFilho, Node *listaProcessosFalhos);
 
-void arvere(int raizId, int dimensaoVCube, Node *listaProcessosFalhos)
+void arvore(int raizId, int dimensaoVCube, Node *listaProcessosFalhos)
 {
     printf("Sou o processo %d e sou Raiz da Arvore Geradora Minima!\n", raizId);
 
@@ -64,7 +64,7 @@ void arvere(int raizId, int dimensaoVCube, Node *listaProcessosFalhos)
         }
         int target = targetNode->processo;
         int sFilho = targetNode->sFilho;
-        subArvere(target, sFilho, listaProcessosFalhos);
+        subArvore(target, sFilho, listaProcessosFalhos);
     }
 
     // printf("Sou o processo %d e terminei de enviar mensagens para meus filhos!\n", raizId);
@@ -72,7 +72,7 @@ void arvere(int raizId, int dimensaoVCube, Node *listaProcessosFalhos)
     deleteList(&filaProcessos);
 }
 
-void subArvere(int processoId, int sFilho, Node *listaProcessosFalhos)
+void subArvore(int processoId, int sFilho, Node *listaProcessosFalhos)
 {
 
     // printf("Sou o processo %d e tenho s-filho %d\n", processoId, sFilho);
@@ -133,7 +133,7 @@ void subArvere(int processoId, int sFilho, Node *listaProcessosFalhos)
         int target = targetNode->processo;
         int sFilho = targetNode->sFilho;
 
-        subArvere(target, sFilho, listaProcessosFalhos);
+        subArvore(target, sFilho, listaProcessosFalhos);
     }
 
     // printf("Sou o processo %d e terminei de enviar mensagens para meus filhos!\n", processoId);
@@ -151,6 +151,6 @@ void subArvere(int processoId, int sFilho, Node *listaProcessosFalhos)
 //     // Node *listaProcessosFalhos = createNode(4);
 //     // Node *listaProcessosFalhos = createNode(7);
 
-//     arvere(raizId, dimensaoVCube, listaProcessosFalhos);
+//     arvore(raizId, dimensaoVCube, listaProcessosFalhos);
 //     deleteList(&listaProcessosFalhos);
 // }
