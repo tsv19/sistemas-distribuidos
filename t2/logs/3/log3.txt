@@ -1,0 +1,43 @@
+===============================================================
+           Sistemas Distribuídos Prof. Elias
+               LOG do Trabalho Prático 1
+     Implementar o detector de falhas vCube (versão 2)
+      Este programa foi executado para: N=8 processos.
+           Tempo Total de Simulação = 92
+===============================================================
+
+Processo 0 testou no tempo 30.0, State: [  0   0   0  -1   0  -1  -1  -1 ]
+Processo 1 testou no tempo 30.0, State: [  0   0   0   0   0   0  -1  -1 ]
+Processo 2 testou no tempo 30.0, State: [  0   0   0   0   0  -1   0  -1 ]
+Processo 3 testou no tempo 30.0, State: [  0   0   0   0   0   0   0   0 ]
+Processo 4 testou no tempo 30.0, State: [  0   0   0  -1   0   0   0  -1 ]
+Processo 5 testou no tempo 30.0, State: [  0   0   0   0   0   0   0   0 ]
+Processo 6 testou no tempo 30.0, State: [  0   0   0   0   0   0   0   0 ]
+Processo 7 testou no tempo 30.0, State: [  0   0   0   0   0   0   0   0 ]
+
+Socooorro!!! Sou o processo 1  e estou falhando no tempo 31.0
+Socooorro!!! Sou o processo 2  e estou falhando no tempo 31.0
+Socooorro!!! Sou o processo 4  e estou falhando no tempo 31.0
+Socooorro!!! Sou o processo 7  e estou falhando no tempo 31.0
+
+Processo 0 testou no tempo 60.0, State: [  0   1   1   0   1   0   0   0 ]
+Processo 3 testou no tempo 60.0, State: [  0   1   1   0   1   0   0   1 ]
+Processo 5 testou no tempo 60.0, State: [  0   1   1   0   1   0   0   1 ]
+Processo 6 testou no tempo 60.0, State: [  0   1   1   0   1   0   0   1 ]
+
+Processo 0 testou no tempo 90.0, State: [  0   1   1   0   1   0   0   1 ]
+Processo 3 testou no tempo 90.0, State: [  0   1   1   0   1   0   0   1 ]
+Processo 5 testou no tempo 90.0, State: [  0   1   1   0   1   0   0   1 ]
+Processo 6 testou no tempo 90.0, State: [  0   1   1   0   1   0   0   1 ]
+
+Sou o processo 0 e sou Raiz da Arvore Geradora Minima!
+Processo 0 não encontrou processo correto no nível 1
+Processo 0 enviando mensagem para o processo 3 com s-filho 2
+Processo 0 enviando mensagem para o processo 5 com s-filho 3
+
+Processo 3 não encontrou processo correto no nível 1
+Processo 5 não encontrou processo correto no nível 1
+Processo 5 enviando mensagem para o processo 6 com s-filho 2
+Processo 6 não encontrou processo correto no nível 1
+
+Processo 0 testou no tempo 120.0, State: [  0   1   1   0   1   0   0   1 ]

@@ -1,0 +1,111 @@
+===============================================================
+           Sistemas Distribuídos Prof. Elias
+               LOG do Trabalho Prático 1
+     Implementar o detector de falhas vCube (versão 2)
+      Este programa foi executado para: N=16 processos.
+           Tempo Total de Simulação = 122
+===============================================================
+
+Processo 0 testou no tempo 30.0, State: [  0   0   0  -1   0  -1  -1  -1   0  -1  -1  -1  -1  -1  -1  -1 ]
+Processo 1 testou no tempo 30.0, State: [  0   0   0   0   0   0  -1  -1   0   0  -1  -1  -1  -1  -1  -1 ]
+Processo 2 testou no tempo 30.0, State: [  0   0   0   0   0  -1   0  -1   0  -1   0  -1  -1  -1  -1  -1 ]
+Processo 3 testou no tempo 30.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0  -1  -1  -1  -1 ]
+Processo 4 testou no tempo 30.0, State: [  0   0   0  -1   0   0   0  -1   0  -1  -1  -1   0  -1  -1  -1 ]
+Processo 5 testou no tempo 30.0, State: [  0   0   0   0   0   0   0   0   0   0  -1  -1   0   0  -1  -1 ]
+Processo 6 testou no tempo 30.0, State: [  0   0   0   0   0   0   0   0   0  -1   0  -1   0  -1   0  -1 ]
+Processo 7 testou no tempo 30.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 8 testou no tempo 30.0, State: [  0   0   0  -1   0  -1  -1  -1   0   0   0  -1   0  -1  -1  -1 ]
+Processo 9 testou no tempo 30.0, State: [  0   0   0   0   0   0  -1  -1   0   0   0   0   0   0  -1  -1 ]
+Processo 10 testou no tempo 30.0, State: [  0   0   0   0   0  -1   0  -1   0   0   0   0   0  -1   0  -1 ]
+Processo 11 testou no tempo 30.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 12 testou no tempo 30.0, State: [  0   0   0  -1   0   0   0  -1   0   0   0  -1   0   0   0  -1 ]
+Processo 13 testou no tempo 30.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 14 testou no tempo 30.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 15 testou no tempo 30.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+
+Processo 0 testou no tempo 60.0, State: [  0   0   0   0   0   0   0  -1   0   0   0  -1   0  -1  -1  -1 ]
+Processo 1 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0  -1  -1 ]
+Processo 2 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0  -1   0  -1 ]
+Processo 3 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 4 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0  -1   0   0   0  -1 ]
+Processo 5 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 6 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 7 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 8 testou no tempo 60.0, State: [  0   0   0   0   0   0   0  -1   0   0   0   0   0   0   0  -1 ]
+Processo 9 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 10 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 11 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 12 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 13 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 14 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 15 testou no tempo 60.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+
+Processo 0 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0  -1 ]
+Processo 1 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 2 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 3 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 4 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 5 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 6 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 7 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 8 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 9 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 10 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 11 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 12 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 13 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 14 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 15 testou no tempo 90.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+
+Processo 0 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 1 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 2 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 3 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 4 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 5 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 6 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 7 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 8 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 9 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 10 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 11 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 12 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 13 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 14 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+Processo 15 testou no tempo 120.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+
+Sou o processo 0 e sou Raiz da Arvore Geradora Minima!
+Processo 0 enviando mensagem para o processo 1 com s-filho 1
+Processo 0 enviando mensagem para o processo 2 com s-filho 2
+Processo 0 enviando mensagem para o processo 4 com s-filho 3
+Processo 0 enviando mensagem para o processo 8 com s-filho 4
+
+Sou o processo 1 e sou Folha!
+
+Processo 2 enviando mensagem para o processo 3 com s-filho 1
+Processo 4 enviando mensagem para o processo 5 com s-filho 1
+Processo 4 enviando mensagem para o processo 6 com s-filho 2
+Processo 8 enviando mensagem para o processo 9 com s-filho 1
+Processo 8 enviando mensagem para o processo 10 com s-filho 2
+Processo 8 enviando mensagem para o processo 12 com s-filho 3
+Sou o processo 3 e sou Folha!
+
+Sou o processo 5 e sou Folha!
+
+Processo 6 enviando mensagem para o processo 7 com s-filho 1
+Sou o processo 9 e sou Folha!
+
+Processo 10 enviando mensagem para o processo 11 com s-filho 1
+Processo 12 enviando mensagem para o processo 13 com s-filho 1
+Processo 12 enviando mensagem para o processo 14 com s-filho 2
+Sou o processo 7 e sou Folha!
+
+Sou o processo 11 e sou Folha!
+
+Sou o processo 13 e sou Folha!
+
+Processo 14 enviando mensagem para o processo 15 com s-filho 1
+Sou o processo 15 e sou Folha!
+
+
+Processo 0 testou no tempo 150.0, State: [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]

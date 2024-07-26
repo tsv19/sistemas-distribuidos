@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     static int N, // nÃºmero de processos
         token,    // indica o processo que estÃ¡ executando
         event, r, i,
-        MaxTempoSimulac = 92;
+        MaxTempoSimulac = 62;
 
     static char fa_name[5];
 
@@ -83,11 +83,7 @@ int main(int argc, char *argv[])
     {
         schedule(test, 30.0, i);
     }
-    schedule(fault, 31.0, 1);
-    schedule(fault, 31.0, 2);
-    schedule(fault, 31.0, 4);
-    schedule(fault, 31.0, 7);
-    schedule(generate, 91.0, 0);
+    schedule(generate, 61.0, 0);
 
     // agora vem o loop principal do simulador
 
