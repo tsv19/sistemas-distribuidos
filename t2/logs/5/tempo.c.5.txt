@@ -228,7 +228,7 @@ int main(int argc, char *argv[])
                 }
             }
 
-            arvere(raiz, ceil(log2(N)), listaProcessosFalhos);
+            arvore(raiz, ceil(log2(N)), listaProcessosFalhos);
 
             deleteList(&listaProcessosFalhos);
             break;
